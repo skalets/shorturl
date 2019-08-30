@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TinyURL</title>
+</head>
+<body>
+<form method="post">
+    <label for="url">Enter URL:</label>
+    <input type="url" id="url" name="full_url"
+           placeholder="https://example.com" required><br>
+    <input type="submit" value="Submit">
+</form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+</body>
+</html>
