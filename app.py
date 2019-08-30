@@ -19,7 +19,7 @@ db = SQLAlchemy(app)
 
 class URL(db.Model):
     short = db.Column(db.String(7), primary_key=True, unique=True)
-    full = db.Column(db.String(512), unique=True)
+    full = db.Column(db.String(254), unique=True)
 
     def __init__(self, short, full):
         self.short = short
