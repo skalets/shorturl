@@ -1,0 +1,4 @@
+DB_TABLE = ''
+DB_USER = ''
+DB_PASSWORD = ''
+DB_HOST = ''

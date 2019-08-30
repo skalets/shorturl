@@ -3,11 +3,15 @@ from flask import redirect, render_template, request, flash, abort
 from flask_sqlalchemy import SQLAlchemy
 import hashlib
 import os
+import config
 
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://skalets:gjsc01ubu@localhost/short_url"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://%s:%s@%s/%s" % (config.DB_USER,
+                                                                 config.DB_PASSWORD,
+                                                                 config.DB_HOST,
+                                                                 config.DB_TABLE)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
