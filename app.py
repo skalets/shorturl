@@ -39,6 +39,7 @@ def home():
         url = URL.query.filter_by(short=md5).first()
         if request.base_url not in full_url:
             flash(request.base_url + md5)
+            flash(full_url)
             if not url:
                 db.session.add(new_url)
                 db.session.commit()
